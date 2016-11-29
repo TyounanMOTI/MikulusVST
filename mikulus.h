@@ -1,6 +1,7 @@
 #pragma once
 
 #include <public.sdk/source/vst/vstaudioeffect.h>
+#include <ip/UdpSocket.h>
 
 class Mikulus : public Steinberg::Vst::AudioEffect
 {
@@ -19,4 +20,7 @@ public:
   tresult PLUGIN_API terminate();
   tresult PLUGIN_API setActive(Steinberg::TBool state);
   tresult PLUGIN_API process(Steinberg::Vst::ProcessData& data);
+
+private:
+  UdpTransmitSocket transmitSocket;
 };

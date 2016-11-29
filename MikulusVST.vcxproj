@@ -87,7 +87,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>vst_sdk\;vst_sdk\vstgui4\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vst_sdk\;vst_sdk\vstgui4\;oscpack\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE=1;VSTGUI_LIVE_EDITING=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
@@ -104,13 +104,15 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>vst_sdk\;vst_sdk\vstgui4\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vst_sdk\;vst_sdk\vstgui4\;oscpack\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE=1;VSTGUI_LIVE_EDITING=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <OutputFile>$(CommonProgramW6432)\VST3\Steinberg\$(ProjectName)$(TargetExt)</OutputFile>
       <ModuleDefinitionFile>mikulus_vst.def</ModuleDefinitionFile>
+      <AdditionalLibraryDirectories>lib\oscpack\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>oscpack.lib;Ws2_32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>.\vst_sdk\public.sdk\samples\vst\validator\win\x64\Release\vstvalidator.exe "$(CommonProgramW6432)\VST3\Steinberg\$(ProjectName)$(TargetExt)"</Command>
@@ -123,7 +125,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>vst_sdk\;vst_sdk\vstgui4\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vst_sdk\;vst_sdk\vstgui4\;oscpack\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
@@ -144,7 +146,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>vst_sdk\;vst_sdk\vstgui4\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vst_sdk\;vst_sdk\vstgui4\;oscpack\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
@@ -153,6 +155,8 @@
       <OptimizeReferences>true</OptimizeReferences>
       <OutputFile>$(CommonProgramW6432)\VST3\Steinberg\$(ProjectName)$(TargetExt)</OutputFile>
       <ModuleDefinitionFile>mikulus_vst.def</ModuleDefinitionFile>
+      <AdditionalLibraryDirectories>lib\oscpack\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>oscpack.lib;Ws2_32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>.\vst_sdk\public.sdk\samples\vst\validator\win\x64\Release\vstvalidator.exe "$(CommonProgramW6432)\VST3\Steinberg\$(ProjectName)$(TargetExt)"</Command>

@@ -5,6 +5,7 @@ using namespace Steinberg;
 using namespace Steinberg::Vst;
 
 Mikulus::Mikulus()
+  : transmitSocket(IpEndpointName("127.0.0.1", 393939))
 {
   setControllerClass(MikulusControllerUID);
 }
