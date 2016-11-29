@@ -1,11 +1,12 @@
 #include "mikulus.h"
 #include "class_ids.h"
+#include <osc/OscOutboundPacketStream.h>
 
 using namespace Steinberg;
 using namespace Steinberg::Vst;
 
 Mikulus::Mikulus()
-  : transmitSocket(IpEndpointName("127.0.0.1", 393939))
+  : oscSocket(IpEndpointName("127.0.0.1", 393939))
 {
   setControllerClass(MikulusControllerUID);
 }
@@ -19,6 +20,16 @@ tresult PLUGIN_API Mikulus::initialize(FUnknown * context)
 
   addEventInput(STR16("Event In"), 1);
   addAudioOutput(STR16("Audio Out"), SpeakerArr::kMono);
+
+  osc::OutboundPacketStream out(oscBuffer.data(), oscBufferSize);
+  out
+    << osc::BeginBundleImmediate
+    << osc::BeginMessage("/VST")
+      << "hello"
+    << osc::EndMessage
+    << osc::EndBundle;
+
+  oscSocket.Send(out.Data(), out.Size());
 
   return kResultOk;
 }

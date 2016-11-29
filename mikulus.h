@@ -2,6 +2,7 @@
 
 #include <public.sdk/source/vst/vstaudioeffect.h>
 #include <ip/UdpSocket.h>
+#include <array>
 
 class Mikulus : public Steinberg::Vst::AudioEffect
 {
@@ -22,5 +23,7 @@ public:
   tresult PLUGIN_API process(Steinberg::Vst::ProcessData& data);
 
 private:
-  UdpTransmitSocket transmitSocket;
+  UdpTransmitSocket oscSocket;
+  static const size_t oscBufferSize = 1024;
+  std::array<char, oscBufferSize> oscBuffer;
 };
