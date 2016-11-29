@@ -3,7 +3,7 @@
 
 using namespace Steinberg;
 using namespace Steinberg::Vst;
-#if 0
+
 IPlugView* PLUGIN_API MikulusController::createView(FIDString name)
 {
   if (strcmp(name, ViewType::kEditor) == 0) {
@@ -11,4 +11,3 @@ IPlugView* PLUGIN_API MikulusController::createView(FIDString name)
   }
   return nullptr;
 }
-#endif
