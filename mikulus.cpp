@@ -63,6 +63,7 @@ tresult PLUGIN_API Mikulus::process(Steinberg::Vst::ProcessData & data)
         out
           << osc::BeginBundleImmediate
           << osc::BeginMessage("/VST/OnBeat")
+          << bpm
           << osc::EndMessage
           << osc::EndBundle;
 
@@ -78,6 +79,7 @@ tresult PLUGIN_API Mikulus::process(Steinberg::Vst::ProcessData & data)
         out
           << osc::BeginBundleImmediate
           << osc::BeginMessage("/VST/OnBar")
+          << bpm
           << osc::EndMessage
           << osc::EndBundle;
 

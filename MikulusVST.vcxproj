@@ -92,11 +92,14 @@
       <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE=1;VSTGUI_LIVE_EDITING=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <OutputFile>$(CommonProgramFiles)\VST3\Steinberg\$(ProjectName)$(TargetExt)</OutputFile>
       <ModuleDefinitionFile>mikulus_vst.def</ModuleDefinitionFile>
+      <AdditionalDependencies>oscpack.lib;Ws2_32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>lib\oscpack\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>.\vst_sdk\public.sdk\samples\vst\validator\win\x64\Release\vstvalidator.exe $(TargetPath)</Command>
+      <Command>.\vst_sdk\public.sdk\samples\vst\validator\win\$(Platform)\Release\vstvalidator.exe $(TargetPath)
+xcopy /Y $(TargetPath) "$(CommonProgramFiles)\VST3\"
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -109,13 +112,14 @@
       <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE=1;VSTGUI_LIVE_EDITING=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <OutputFile>$(CommonProgramW6432)\VST3\Steinberg\$(ProjectName)$(TargetExt)</OutputFile>
       <ModuleDefinitionFile>mikulus_vst.def</ModuleDefinitionFile>
       <AdditionalLibraryDirectories>lib\oscpack\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>oscpack.lib;Ws2_32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>.\vst_sdk\public.sdk\samples\vst\validator\win\x64\Release\vstvalidator.exe "$(CommonProgramW6432)\VST3\Steinberg\$(ProjectName)$(TargetExt)"</Command>
+      <Command>.\vst_sdk\public.sdk\samples\vst\validator\win\$(Platform)\Release\vstvalidator.exe $(TargetPath)
+xcopy /Y $(TargetPath) "$(CommonProgramW6432)\VST3\"
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -127,16 +131,19 @@
       <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>vst_sdk\;vst_sdk\vstgui4\;oscpack\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE=1;RELEASE=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <OutputFile>$(CommonProgramFiles)\VST3\Steinberg\$(ProjectName)$(TargetExt)</OutputFile>
       <ModuleDefinitionFile>mikulus_vst.def</ModuleDefinitionFile>
+      <AdditionalDependencies>oscpack.lib;Ws2_32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>lib\oscpack\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>.\vst_sdk\public.sdk\samples\vst\validator\win\x64\Release\vstvalidator.exe $(TargetPath)</Command>
+      <Command>.\vst_sdk\public.sdk\samples\vst\validator\win\$(Platform)\Release\vstvalidator.exe $(TargetPath)
+xcopy /Y $(TargetPath) "$(CommonProgramFiles)\VST3\"
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -148,18 +155,19 @@
       <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>vst_sdk\;vst_sdk\vstgui4\;oscpack\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE=1;RELEASE=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <OutputFile>$(CommonProgramW6432)\VST3\Steinberg\$(ProjectName)$(TargetExt)</OutputFile>
       <ModuleDefinitionFile>mikulus_vst.def</ModuleDefinitionFile>
       <AdditionalLibraryDirectories>lib\oscpack\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>oscpack.lib;Ws2_32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>.\vst_sdk\public.sdk\samples\vst\validator\win\x64\Release\vstvalidator.exe "$(CommonProgramW6432)\VST3\Steinberg\$(ProjectName)$(TargetExt)"</Command>
+      <Command>.\vst_sdk\public.sdk\samples\vst\validator\win\$(Platform)\Release\vstvalidator.exe $(TargetPath)
+xcopy /Y $(TargetPath) "$(CommonProgramW6432)\VST3\"
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
