@@ -28,4 +28,5 @@ private:
   std::array<char, oscBufferSize> oscBuffer;
   double bpm = 0.0;
   Steinberg::Vst::TQuarterNotes projectTime = 0.0;
+  Steinberg::Vst::TQuarterNotes barPosition = 0.0;
 };

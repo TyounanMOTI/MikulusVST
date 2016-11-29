@@ -63,12 +63,25 @@ tresult PLUGIN_API Mikulus::process(Steinberg::Vst::ProcessData & data)
         out
           << osc::BeginBundleImmediate
           << osc::BeginMessage("/VST/OnBeat")
-          << projectTime
           << osc::EndMessage
           << osc::EndBundle;
 
         oscSocket.Send(out.Data(), out.Size());
+      }
+    }
+    if (data.processContext->state & ProcessContext::kBarPositionValid) {
+      auto newBarPosition = data.processContext->barPositionMusic;
+      if (newBarPosition != barPosition) {
+        barPosition = newBarPosition;
 
+        osc::OutboundPacketStream out(oscBuffer.data(), oscBufferSize);
+        out
+          << osc::BeginBundleImmediate
+          << osc::BeginMessage("/VST/OnBar")
+          << osc::EndMessage
+          << osc::EndBundle;
+
+        oscSocket.Send(out.Data(), out.Size());
       }
     }
   }
