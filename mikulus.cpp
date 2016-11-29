@@ -7,7 +7,7 @@ using namespace Steinberg;
 using namespace Steinberg::Vst;
 
 Mikulus::Mikulus()
-  : oscSocket(IpEndpointName("127.0.0.1", 393939))
+  : oscSocket(IpEndpointName("127.0.0.1", 3939))
 {
   setControllerClass(MikulusControllerUID);
 }
