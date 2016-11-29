@@ -9,6 +9,4 @@ public:
   {
     return (Steinberg::Vst::IEditController*) new MikulusController;
   }
-
-  Steinberg::IPlugView* PLUGIN_API createView(Steinberg::FIDString name);
 };
