@@ -25,26 +25,26 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -68,20 +68,53 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetExt>.vst3</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <TargetExt>.vst3</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetExt>.vst3</TargetExt>
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetExt>.vst3</TargetExt>
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
+      <AdditionalIncludeDirectories>vst_sdk\;vst_sdk\vstgui4\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE=1;VSTGUI_LIVE_EDITING=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <Link>
+      <OutputFile>$(CommonProgramFiles)\VST3\Steinberg\$(ProjectName)$(TargetExt)</OutputFile>
+      <ModuleDefinitionFile>mikulus_vst.def</ModuleDefinitionFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>.\vst_sdk\public.sdk\samples\vst\validator\win\x64\Release\vstvalidator.exe $(TargetPath)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
+      <AdditionalIncludeDirectories>vst_sdk\;vst_sdk\vstgui4\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE=1;VSTGUI_LIVE_EDITING=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <Link>
+      <OutputFile>$(CommonProgramW6432)\VST3\Steinberg\$(ProjectName)$(TargetExt)</OutputFile>
+      <ModuleDefinitionFile>mikulus_vst.def</ModuleDefinitionFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>.\vst_sdk\public.sdk\samples\vst\validator\win\x64\Release\vstvalidator.exe "$(CommonProgramW6432)\VST3\Steinberg\$(ProjectName)$(TargetExt)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -89,12 +122,20 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
+      <AdditionalIncludeDirectories>vst_sdk\;vst_sdk\vstgui4\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE=1;VSTGUI_LIVE_EDITING=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <OutputFile>$(CommonProgramFiles)\VST3\Steinberg\$(ProjectName)$(TargetExt)</OutputFile>
+      <ModuleDefinitionFile>mikulus_vst.def</ModuleDefinitionFile>
     </Link>
+    <PostBuildEvent>
+      <Command>.\vst_sdk\public.sdk\samples\vst\validator\win\x64\Release\vstvalidator.exe $(TargetPath)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -102,14 +143,91 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
+      <AdditionalIncludeDirectories>vst_sdk\;vst_sdk\vstgui4\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE=1;VSTGUI_LIVE_EDITING=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <OutputFile>$(CommonProgramW6432)\VST3\Steinberg\$(ProjectName)$(TargetExt)</OutputFile>
+      <ModuleDefinitionFile>mikulus_vst.def</ModuleDefinitionFile>
     </Link>
+    <PostBuildEvent>
+      <Command>.\vst_sdk\public.sdk\samples\vst\validator\win\x64\Release\vstvalidator.exe "$(CommonProgramW6432)\VST3\Steinberg\$(ProjectName)$(TargetExt)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="mikulus_editor.uidesc" />
+    <None Include="mikulus_vst.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="class_ids.h" />
+    <ClInclude Include="mikulus.h" />
+    <ClInclude Include="mikulus_controller.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="version.h" />
+    <ClInclude Include="vst_sdk\pluginterfaces\base\falignpop.h" />
+    <ClInclude Include="vst_sdk\pluginterfaces\base\falignpush.h" />
+    <ClInclude Include="vst_sdk\pluginterfaces\base\fplatform.h" />
+    <ClInclude Include="vst_sdk\pluginterfaces\base\ftypes.h" />
+    <ClInclude Include="vst_sdk\pluginterfaces\base\funknown.h" />
+    <ClInclude Include="vst_sdk\pluginterfaces\base\ipluginbase.h" />
+    <ClInclude Include="vst_sdk\pluginterfaces\base\keycodes.h" />
+    <ClInclude Include="vst_sdk\pluginterfaces\base\ustring.h" />
+    <ClInclude Include="vst_sdk\pluginterfaces\gui\iplugview.h" />
+    <ClInclude Include="vst_sdk\pluginterfaces\vst\ivstattributes.h" />
+    <ClInclude Include="vst_sdk\pluginterfaces\vst\ivstaudioprocessor.h" />
+    <ClInclude Include="vst_sdk\pluginterfaces\vst\ivstcomponent.h" />
+    <ClInclude Include="vst_sdk\pluginterfaces\vst\ivsteditcontroller.h" />
+    <ClInclude Include="vst_sdk\pluginterfaces\vst\ivstevents.h" />
+    <ClInclude Include="vst_sdk\pluginterfaces\vst\ivsthostapplication.h" />
+    <ClInclude Include="vst_sdk\pluginterfaces\vst\ivstmessage.h" />
+    <ClInclude Include="vst_sdk\pluginterfaces\vst\ivstmidicontrollers.h" />
+    <ClInclude Include="vst_sdk\pluginterfaces\vst\ivstparameterchanges.h" />
+    <ClInclude Include="vst_sdk\pluginterfaces\vst\ivstprocesscontext.h" />
+    <ClInclude Include="vst_sdk\pluginterfaces\vst\ivstunits.h" />
+    <ClInclude Include="vst_sdk\pluginterfaces\vst\vstpresetkeys.h" />
+    <ClInclude Include="vst_sdk\pluginterfaces\vst\vsttypes.h" />
+    <ClInclude Include="vst_sdk\public.sdk\source\common\pluginview.h" />
+    <ClInclude Include="vst_sdk\public.sdk\source\main\pluginfactoryvst3.h" />
+    <ClInclude Include="vst_sdk\public.sdk\source\vst\vstaudioeffect.h" />
+    <ClInclude Include="vst_sdk\public.sdk\source\vst\vstbus.h" />
+    <ClInclude Include="vst_sdk\public.sdk\source\vst\vstcomponent.h" />
+    <ClInclude Include="vst_sdk\public.sdk\source\vst\vstcomponentbase.h" />
+    <ClInclude Include="vst_sdk\public.sdk\source\vst\vsteditcontroller.h" />
+    <ClInclude Include="vst_sdk\public.sdk\source\vst\vstguieditor.h" />
+    <ClInclude Include="vst_sdk\public.sdk\source\vst\vstparameters.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="entrypoint.cpp" />
+    <ClCompile Include="mikulus.cpp" />
+    <ClCompile Include="mikulus_controller.cpp" />
+    <ClCompile Include="vst_sdk\pluginterfaces\base\funknown.cpp" />
+    <ClCompile Include="vst_sdk\pluginterfaces\base\ustring.cpp" />
+    <ClCompile Include="vst_sdk\public.sdk\source\common\pluginview.cpp" />
+    <ClCompile Include="vst_sdk\public.sdk\source\main\dllmain.cpp" />
+    <ClCompile Include="vst_sdk\public.sdk\source\main\pluginfactoryvst3.cpp" />
+    <ClCompile Include="vst_sdk\public.sdk\source\vst\vstaudioeffect.cpp" />
+    <ClCompile Include="vst_sdk\public.sdk\source\vst\vstbus.cpp" />
+    <ClCompile Include="vst_sdk\public.sdk\source\vst\vstcomponent.cpp" />
+    <ClCompile Include="vst_sdk\public.sdk\source\vst\vstcomponentbase.cpp" />
+    <ClCompile Include="vst_sdk\public.sdk\source\vst\vsteditcontroller.cpp" />
+    <ClCompile Include="vst_sdk\public.sdk\source\vst\vstguieditor.cpp" />
+    <ClCompile Include="vst_sdk\public.sdk\source\vst\vstinitiids.cpp" />
+    <ClCompile Include="vst_sdk\public.sdk\source\vst\vstparameters.cpp" />
+    <ClCompile Include="vst_sdk\vstgui4\vstgui\plugin-bindings\vst3editor.cpp" />
+    <ClCompile Include="vst_sdk\vstgui4\vstgui\vstgui_uidescription_win32.cpp" />
+    <ClCompile Include="vst_sdk\vstgui4\vstgui\vstgui_win32.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="vst_sdk\base\win\base.vcxproj">
+      <Project>{6f060ef8-07be-4944-a28b-9a9d8ae7af0e}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resource.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

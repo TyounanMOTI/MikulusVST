@@ -5,13 +5,216 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\plugininterfaces">
+      <UniqueIdentifier>{60e9d6fa-0e7f-4a48-b405-2f4a97d4d3b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\plugininterfaces\base">
+      <UniqueIdentifier>{498936d1-f142-40d5-8527-742d24f0b1a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\plugininterfaces\gui">
+      <UniqueIdentifier>{183db84f-e150-4f0d-b424-8656e6e73591}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\plugininterfaces\vst">
+      <UniqueIdentifier>{a8989829-30ee-473a-8131-e91b3460dcb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\public.sdk">
+      <UniqueIdentifier>{8b411242-0f4c-4d09-91b5-28a635f739c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\public.sdk\common">
+      <UniqueIdentifier>{68907801-5567-4344-9e95-d5fea783f150}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\public.sdk\main">
+      <UniqueIdentifier>{01e40234-9972-428f-8b68-14b0697fa4f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\public.sdk\vst">
+      <UniqueIdentifier>{06dab80f-92d0-43da-a75b-e7f2380349b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\vstgui4">
+      <UniqueIdentifier>{a82d76ee-76c7-4234-a17d-3cde6b7bcfb9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="mikulus_vst.def">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="mikulus_editor.uidesc">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="vst_sdk\pluginterfaces\base\keycodes.h">
+      <Filter>Source Files\plugininterfaces\base</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\pluginterfaces\base\ustring.h">
+      <Filter>Source Files\plugininterfaces\base</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\pluginterfaces\base\falignpop.h">
+      <Filter>Source Files\plugininterfaces\base</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\pluginterfaces\base\falignpush.h">
+      <Filter>Source Files\plugininterfaces\base</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\pluginterfaces\base\fplatform.h">
+      <Filter>Source Files\plugininterfaces\base</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\pluginterfaces\base\ftypes.h">
+      <Filter>Source Files\plugininterfaces\base</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\pluginterfaces\base\funknown.h">
+      <Filter>Source Files\plugininterfaces\base</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\pluginterfaces\base\ipluginbase.h">
+      <Filter>Source Files\plugininterfaces\base</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\pluginterfaces\gui\iplugview.h">
+      <Filter>Source Files\plugininterfaces\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\pluginterfaces\vst\ivstparameterchanges.h">
+      <Filter>Source Files\plugininterfaces\vst</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\pluginterfaces\vst\ivstprocesscontext.h">
+      <Filter>Source Files\plugininterfaces\vst</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\pluginterfaces\vst\ivstunits.h">
+      <Filter>Source Files\plugininterfaces\vst</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\pluginterfaces\vst\vstpresetkeys.h">
+      <Filter>Source Files\plugininterfaces\vst</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\pluginterfaces\vst\vsttypes.h">
+      <Filter>Source Files\plugininterfaces\vst</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\pluginterfaces\vst\ivstattributes.h">
+      <Filter>Source Files\plugininterfaces\vst</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\pluginterfaces\vst\ivstaudioprocessor.h">
+      <Filter>Source Files\plugininterfaces\vst</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\pluginterfaces\vst\ivstcomponent.h">
+      <Filter>Source Files\plugininterfaces\vst</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\pluginterfaces\vst\ivsteditcontroller.h">
+      <Filter>Source Files\plugininterfaces\vst</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\pluginterfaces\vst\ivstevents.h">
+      <Filter>Source Files\plugininterfaces\vst</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\pluginterfaces\vst\ivsthostapplication.h">
+      <Filter>Source Files\plugininterfaces\vst</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\pluginterfaces\vst\ivstmessage.h">
+      <Filter>Source Files\plugininterfaces\vst</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\pluginterfaces\vst\ivstmidicontrollers.h">
+      <Filter>Source Files\plugininterfaces\vst</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\public.sdk\source\common\pluginview.h">
+      <Filter>Source Files\public.sdk\common</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\public.sdk\source\main\pluginfactoryvst3.h">
+      <Filter>Source Files\public.sdk\main</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\public.sdk\source\vst\vstcomponent.h">
+      <Filter>Source Files\public.sdk\vst</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\public.sdk\source\vst\vstcomponentbase.h">
+      <Filter>Source Files\public.sdk\vst</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\public.sdk\source\vst\vsteditcontroller.h">
+      <Filter>Source Files\public.sdk\vst</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\public.sdk\source\vst\vstguieditor.h">
+      <Filter>Source Files\public.sdk\vst</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\public.sdk\source\vst\vstparameters.h">
+      <Filter>Source Files\public.sdk\vst</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\public.sdk\source\vst\vstaudioeffect.h">
+      <Filter>Source Files\public.sdk\vst</Filter>
+    </ClInclude>
+    <ClInclude Include="vst_sdk\public.sdk\source\vst\vstbus.h">
+      <Filter>Source Files\public.sdk\vst</Filter>
+    </ClInclude>
+    <ClInclude Include="version.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="class_ids.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mikulus.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mikulus_controller.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="vst_sdk\pluginterfaces\base\ustring.cpp">
+      <Filter>Source Files\plugininterfaces\base</Filter>
+    </ClCompile>
+    <ClCompile Include="vst_sdk\pluginterfaces\base\funknown.cpp">
+      <Filter>Source Files\plugininterfaces\base</Filter>
+    </ClCompile>
+    <ClCompile Include="vst_sdk\public.sdk\source\common\pluginview.cpp">
+      <Filter>Source Files\public.sdk\common</Filter>
+    </ClCompile>
+    <ClCompile Include="vst_sdk\public.sdk\source\main\dllmain.cpp">
+      <Filter>Source Files\public.sdk\main</Filter>
+    </ClCompile>
+    <ClCompile Include="vst_sdk\public.sdk\source\main\pluginfactoryvst3.cpp">
+      <Filter>Source Files\public.sdk\main</Filter>
+    </ClCompile>
+    <ClCompile Include="vst_sdk\public.sdk\source\vst\vstcomponent.cpp">
+      <Filter>Source Files\public.sdk\vst</Filter>
+    </ClCompile>
+    <ClCompile Include="vst_sdk\public.sdk\source\vst\vstcomponentbase.cpp">
+      <Filter>Source Files\public.sdk\vst</Filter>
+    </ClCompile>
+    <ClCompile Include="vst_sdk\public.sdk\source\vst\vsteditcontroller.cpp">
+      <Filter>Source Files\public.sdk\vst</Filter>
+    </ClCompile>
+    <ClCompile Include="vst_sdk\public.sdk\source\vst\vstguieditor.cpp">
+      <Filter>Source Files\public.sdk\vst</Filter>
+    </ClCompile>
+    <ClCompile Include="vst_sdk\public.sdk\source\vst\vstinitiids.cpp">
+      <Filter>Source Files\public.sdk\vst</Filter>
+    </ClCompile>
+    <ClCompile Include="vst_sdk\public.sdk\source\vst\vstparameters.cpp">
+      <Filter>Source Files\public.sdk\vst</Filter>
+    </ClCompile>
+    <ClCompile Include="vst_sdk\public.sdk\source\vst\vstaudioeffect.cpp">
+      <Filter>Source Files\public.sdk\vst</Filter>
+    </ClCompile>
+    <ClCompile Include="vst_sdk\public.sdk\source\vst\vstbus.cpp">
+      <Filter>Source Files\public.sdk\vst</Filter>
+    </ClCompile>
+    <ClCompile Include="entrypoint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vst_sdk\vstgui4\vstgui\vstgui_win32.cpp">
+      <Filter>Source Files\vstgui4</Filter>
+    </ClCompile>
+    <ClCompile Include="mikulus.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vst_sdk\vstgui4\vstgui\plugin-bindings\vst3editor.cpp">
+      <Filter>Source Files\vstgui4</Filter>
+    </ClCompile>
+    <ClCompile Include="vst_sdk\vstgui4\vstgui\vstgui_uidescription_win32.cpp">
+      <Filter>Source Files\vstgui4</Filter>
+    </ClCompile>
+    <ClCompile Include="mikulus_controller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resource.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>
